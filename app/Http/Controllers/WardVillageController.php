@@ -62,6 +62,18 @@ class WardVillageController extends Controller
             $model = $model->where('am_constituency', $am_constituency);
         }
 
+        if ($am_constituency_number = $request->input('am_constituency_number')) {
+            $model = $model->where('am_constituency_number', $am_constituency_number);
+        }
+
+        if ($st_constituency = $request->input('st_constituency')) {
+            $model = $model->where('st_constituency', $st_constituency);
+        }
+
+        if ($st_constituency_number = $request->input('st_constituency_number')) {
+            $model = $model->where('st_constituency_number', $st_constituency_number);
+        }
+
         return $model->paginate($fields);
     }
 

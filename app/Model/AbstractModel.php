@@ -154,6 +154,10 @@ abstract class AbstractModel
 
         $sort = json_decode(app('request')->input('sort', '{}'), true);
 
+        if (!is_array($sort)) {
+            $sort = [];
+        }
+
         $result = $this->getCollection()
                         ->sort($sort)
                         ->limit($perPage)

@@ -63,6 +63,10 @@ class TownshipController extends Controller
             $model = $model->where('am_constituency', $am_constituency);
         }
 
+        if ($am_constituency_number = $request->input('am_constituency_number')) {
+            $model = $model->where('am_constituency_number', $am_constituency_number);
+        }
+
         return $model->paginate($fields);
     }
 

@@ -74,6 +74,10 @@ class WardVillageController extends Controller
             $model = $model->where('st_constituency_number', $st_constituency_number);
         }
 
+        if ($ward_village_number = $request->input('ward_village_number')) {
+            $model = $model->where('ward_village_number', $ward_village_number);
+        }  
+
         return $model->paginate($fields);
     }
 
